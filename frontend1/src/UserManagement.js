@@ -8,22 +8,22 @@ function UserManagement() {
   const [users, setUsers] = useState([]);
 
   const fetchUsers = async () => {
-    const response = await axios.get("http://localhost:3000/users");
+    const response = await axios.get(`${window.location.origin}/users`);
     setUsers(response.data);
   };
 
   const handleAddUser = async (user) => {
-    await axios.post("http://localhost:3000/users", user);
+    await axios.post(`${window.location.origin}/users`, user);
     fetchUsers();
   };
 
   const handleEditUser = async (id, user) => {
-    await axios.put(`http://localhost:3000/users/${id}`, user);
+    await axios.put(`${window.location.origin}/users/${id}`, user);
     fetchUsers();
   };
 
   const handleDeleteUser = async (id) => {
-    await axios.delete(`http://localhost:3000/users/${id}`);
+    await axios.delete(`${window.location.origin}/users/${id}`);
     fetchUsers();
   };
 
